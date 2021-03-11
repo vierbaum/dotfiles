@@ -1,0 +1,34 @@
+#+TITLE: Keybinds
+
+* Ideas
+
+* Final
+
+| Keybinding               | Category       | Action                | Done |
+|--------------------------+----------------+-----------------------+------|
+| Super + Tab              | Layout         | Next                  | X    |
+| Super + Shift + Space    | Layout         | Flip                  | X    |
+| Super + g                | Layout         | Change floating state | X    |
+| Super + f                | Layout         | Change fullscreen     | X    |
+| Super + i                | Resize Windows | Increase              | X    |
+| Super + m                | Resize Windows | decrease              | X    |
+| Super + Shift + c        | Window         | Kill                  | X    |
+| Super + W + {h, j, k, l} | Window         | Move                  | x    |
+| Super + {h, j, k, l}     | Window         | Move focus            | x    |
+| Super + p                |                | Spawm prompt          | x    |
+| Super + Q + Super + S    | Qtile          | Restart               | x    |
+|--------------------------+----------------+-----------------------+------|
+| Super + e + Return       | Emacs          | Spawn emacs           | x    |
+| Super + e + d            | Emacs          | Spawn dired           | x    |
+| Super + Shift + e        | Nautilus       | Spawn nautilus        | x    |
+| Super + Shift + d        | Discord        | Spawn discord         | x    |
+| Super + Shift + s        | Flameshot      | Spawn flameshot       | x    |
+| Super + Return           | Terminal       | Spawn alacritty       | x    |
+| Super + Shift + Return   | Terminal       | Spawn tmux            | x    |
+|--------------------------+----------------+-----------------------+------|
+| Super + d + Return       | Firefox        | Spawn firefox         | x    |
+| Super + d + y            | Firefox        | Spawn youtube         | x    |
+| Super + d + t            | Firefox        | Spawn twitter         | x    |
+| Super + d + r            | Firefox        | Spawn reddit          | x    |
+| Super + d + a            | Firefox        | Spawn Arch wiki       | x    |
+|                          |                |                       |      |
