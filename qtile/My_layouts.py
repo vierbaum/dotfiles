@@ -11,7 +11,7 @@ layout = [
         border_focus="#61AFEF",
         border_normal="#010B3D",
         fullscreen_border_width=0,
-        margin=6,
+        margin=12,
     ),
     layout.Matrix(
         border_focus_stack='#d75f5f',

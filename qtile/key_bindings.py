@@ -3,8 +3,6 @@ from typing import List  # noqa: F401
 from libqtile.config import Key, KeyChord
 from libqtile.lazy import lazy
 
-#modifier_keys = {'S': 'mod4','A': 'mod1','H': 'shift','C': 'control',}
-
 mod = "mod4"
 terminal = "alacritty"
 
@@ -15,10 +13,7 @@ bindings = [
     ##########
 
     # Next layout
-    #Key([mod], "tab", lazy.next_layout()),
-
-    # Flip layout
-    #Key([mod, "shift"], "space", lazy.layout.flip()),
+    Key([mod], "Tab", lazy.next_layout()),
 
     # Change window floating state
     Key([mod], "g", lazy.window.toggle_floating()),
@@ -46,6 +41,8 @@ bindings = [
     # Restart Qtile
     Key([mod], "q", lazy.restart(), desc="Restart Qtile"),
 
+    # Turn bar on / off
+
     #########
     # Emacs #
     #########
@@ -53,7 +50,6 @@ bindings = [
     # Spawn Emacs
     KeyChord([mod], "e", [
         Key([], "Return", lazy.spawn("emacsclient -c -a ''")),
-        Key([], "d", lazy.spawn("emacsclient -c -a '' --eval '(dired nil)'")),
     ]),
 
     ############
@@ -82,12 +78,19 @@ bindings = [
     # Firefox #
     ###########
 
-    KeyChord([mod], "d",[
+    KeyChord([mod], "d", [
         Key([], "Return", lazy.spawn("firefox")),
         Key([], "y", lazy.spawn("firefox --new-tab https://youtube.com")),
         Key([], "t", lazy.spawn("firefox --new-tab https://twitter.com")),
         Key([], "r", lazy.spawn("firefox --new-tab https://reddit.com")),
         Key([], "a", lazy.spawn("firefox --new-tab https://wiki.archlinux.org")),
+        Key([], "m", lazy.spawn("firefox --new-tab https://moodle.pfarrwiesen.de")),
+
+        Key([mod], "y", lazy.spawn("firefox --new-window https://youtube.com")),
+        Key([mod], "t", lazy.spawn("firefox --new-window https://twitter.com")),
+        Key([mod], "r", lazy.spawn("firefox --new-window https://reddit.com")),
+        Key([mod], "a", lazy.spawn("firefox --new-window https://wiki.archlinux.org")),
+        Key([mod], "m", lazy.spawn("firefox --new-window https://moodle.pfarrwiesen.de")),
     ]),
 
     ###########
@@ -95,7 +98,7 @@ bindings = [
     ###########
 
     # Move windows
-    KeyChord([mod], "w",[
+    KeyChord([mod], "w", [
         Key([], "h", lazy.layout.shuffle_left()),
         Key([], "j", lazy.layout.shuffle_down()),
         Key([], "k", lazy.layout.shuffle_up()),

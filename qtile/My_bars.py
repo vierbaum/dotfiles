@@ -1,31 +1,9 @@
-import ctypes
 import random
 from enum import Enum
 from typing import List  # noqa: F401
-
-from libqtile import widget
-
-color_gray = "#141414"
-color_white = "#FFFFFF"
-color_light_gray = "#848484"
-color_red = "#E35374"
-color_green = "#98C379"
-color_yellow = "#F0C674"
-color_blue = "61AFEF"
-color_purple = "#C678DD"
-color_cyan = "#56B6BC"
-
-
-class Colour(Enum):
-    gray = id(color_gray)  # a
-    white = id(color_white)  # w
-    light_gray = id(color_light_gray)  # l
-    red = id(color_red)  # r
-    green = id(color_green)  # g
-    yellow = id(color_yellow)  # y
-    blue = id(color_blue)  # b
-    purple = id(color_purple)  # p
-    cyan = id(color_cyan)  # c
+from libqtile.config import Screen
+from libqtile import widget, bar
+from libqtile.lazy import lazy
 
 
 def make_bar_screen2():
@@ -40,7 +18,7 @@ def make_bar_screen2():
         widget.TextBox(text="    "),
         make_layout_window_name(rand_layout_window)[0],
         widget.TextBox(text="    "),
-        #make_layout_window_name(rand_layout_window)[1],
+        # make_layout_window_name(rand_layout_window)[1],
         widget.Spacer(),
         widget.TextBox(text="    "),
         make_infos(rand_info)[0],
@@ -64,13 +42,13 @@ def make_bar_screen1():
         widget.Prompt(foreground="#ff8c00", font='SF Pro Text Semibold'),
         make_groups(rand_groups),
         widget.TextBox(text="    "),
-        #widget.CurrentLayoutIcon(),
-        #widget.DebugInfo(fontsize=12),
-        #widget.CurrentLayoutIcon(),
+        # widget.CurrentLayoutIcon(),
+        # widget.DebugInfo(fontsize=12),
+        # widget.CurrentLayoutIcon(),
         make_layout_window_name(rand_layout_window)[0],
         widget.Spacer(),
-        #widget.TextBox(text="    "),
-        #make_layout_window_name(rand_layout_window)[1],
+        # widgetgg.TextBox(text="    "),
+        # make_layout_window_name(rand_layout_window)[1],
         make_infos(rand_info)[0],
         widget.TextBox(text="    "),
         make_infos(rand_info)[1],
@@ -78,12 +56,12 @@ def make_bar_screen1():
         make_infos(rand_info)[2],
         widget.TextBox(text="    "),
         make_infos(rand_info)[3],
-        #widget.TextBox(text="    "),
+        # widget.TextBox(text="    "),
         widget.Notify(foreground="#ff8c00", font='SF Pro Text Semibold'),
         widget.Systray(),
         widget.Cmus(fontsize=12,
-        font="SF Pro Text Semibold",
-        ),
+                    font="SF Pro Text Semibold",
+                    ),
     ]
 
 
@@ -174,28 +152,52 @@ def make_infos(inp):
             format='  %a %d.%m.20%y  %H:%M:%S ',
             font="SF Pro Text Semibold",
             foreground=p_4,
-            # timezone="Europe/London",
         )
     )
 
 
 def decode_colour(i_colour, i_available_colours):
     t_decode = i_available_colours[i_colour]
-    if t_decode == "a":
-        return str(ctypes.cast(Colour.gray.value, ctypes.py_object).value)
-    elif t_decode == "w":
-        return str(ctypes.cast(Colour.white.value, ctypes.py_object).value)
-    elif t_decode == "l":
-        return str(ctypes.cast(Colour.light_gray.value, ctypes.py_object).value)
-    elif t_decode == "r":
-        return str(ctypes.cast(Colour.red.value, ctypes.py_object).value)
-    elif t_decode == "g":
-        return str(ctypes.cast(Colour.green.value, ctypes.py_object).value)
-    elif t_decode == "y":
-        return str(ctypes.cast(Colour.yellow.value, ctypes.py_object).value)
-    elif t_decode == "b":
-        return str(ctypes.cast(Colour.blue.value, ctypes.py_object).value)
-    elif t_decode == "p":
-        return str(ctypes.cast(Colour.purple.value, ctypes.py_object).value)
-    elif t_decode == "c":
-        return str(ctypes.cast(Colour.cyan.value, ctypes.py_object).value)
+    if t_decode == "a":  # gray
+        return "#141414"
+    elif t_decode == "w":  # white
+        return "#FFFFFF"
+    elif t_decode == "l":  # light_gray
+        return "#848484"
+    elif t_decode == "r":  # red
+        return "#E35374"
+    elif t_decode == "g":  # green
+        return "#98C379"
+    elif t_decode == "y":  # yellow
+        return "#F0C674"
+    elif t_decode == "b":  # blue
+        return "#61AFEF"
+    elif t_decode == "p":  # purple(-ish)
+        return "#C678DD"
+    elif t_decode == "c":  # cyan
+        return "#56B6BC"
+
+
+def make_screens():
+    return [
+        Screen(
+            top=bar.Bar(
+                make_bar_screen1(),
+                27,
+                background="#2e2e2e",
+                opacity=0.80,
+            ),
+        ),
+        Screen(
+            top=bar.Bar(
+                make_bar_screen2(),
+                27,
+                background="#2e2e2e",
+                opacity=0.80,
+            ),
+        )
+    ]
+
+
+if __name__ == "__main__":
+    switch_bar_on_off()
