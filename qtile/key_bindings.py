@@ -90,7 +90,6 @@ bindings = [
         Key([mod], "t", lazy.spawn("firefox --new-window https://twitter.com")),
         Key([mod], "r", lazy.spawn("firefox --new-window https://reddit.com")),
         Key([mod], "a", lazy.spawn("firefox --new-window https://wiki.archlinux.org")),
-        Key([mod], "m", lazy.spawn("firefox --new-window https://moodle.pfarrwiesen.de")),
     ]),
 
     ###########
