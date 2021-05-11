@@ -1,0 +1,9 @@
+export ZDOTDIR="$HOME/.config/zsh"
+export MOZDOTDIR="$HOME/.config/mozilla"
+export XDG_CONFIG_HOME/emacs/
+
+setxkbmap de &
+
+picom --experimental-backends &
+
+feh --bg-scale ~/Pictures/wallpaper/ --randomize &
