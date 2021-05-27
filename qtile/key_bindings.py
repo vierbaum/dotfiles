@@ -96,13 +96,11 @@ bindings = [
         Key([], "t", lazy.spawn("firefox --new-tab https://twitter.com")),
         Key([], "r", lazy.spawn("firefox --new-tab https://reddit.com")),
         Key([], "a", lazy.spawn("firefox --new-tab https://wiki.archlinux.org")),
-        Key([], "m", lazy.spawn("firefox --new-tab https://moodle.pfarrwiesen.de")),
 
         Key([mod], "y", lazy.spawn("firefox --new-window https://youtube.com")),
         Key([mod], "t", lazy.spawn("firefox --new-window https://twitter.com")),
         Key([mod], "r", lazy.spawn("firefox --new-window https://reddit.com")),
         Key([mod], "a", lazy.spawn("firefox --new-window https://wiki.archlinux.org")),
-        Key([mod], "m", lazy.spawn("firefox --new-window https://moodle.pfarrwiesen.de")),
     ]),
 
     ###########
