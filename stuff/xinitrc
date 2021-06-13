@@ -1,0 +1,17 @@
+# export XAUTHORITY="$HOME.config/Xauthority"
+export ZDOTDIR="$HOME/.config/zsh"
+export EDITOR=nvim
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc 
+
+setxkbmap de &
+
+flameshot &
+
+feh --bg-scale ~/Documents/Pictures/wallpaper/ --randomize --no-fehbg &
+
+picom --experimental-backends &
+
+exec /usr/bin/qtile
