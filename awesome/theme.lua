@@ -1,0 +1,68 @@
+---------------------------
+-- Default awesome theme --
+---------------------------
+
+local theme_assets = require("beautiful.theme_assets")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+
+local gfs = require("gears.filesystem")
+local themes_path = gfs.get_themes_dir()
+
+local theme = {}
+
+theme.font          = "JetBrainsMonoHard Nerd Font"
+
+theme.bg_normal     = "#1B1D1E"
+theme.bg_focus      = "#56ADBC"
+theme.bg_urgent     = "#FFFFFF"
+theme.bg_minimize   = "#B3B42B"
+theme.bg_systray    = "#1B1D1E"
+
+theme.fg_normal     = "#F8F8F2"
+theme.fg_focus      = "#F8F8F2"
+theme.fg_urgent     = "#F8F8F2"
+theme.fg_minimize   = "#F8F8F2"
+
+theme.useless_gap   = dpi(0)
+theme.border_width  = dpi(2)
+theme.border_normal = "#1B1D1E"
+theme.border_focus  = "#66D9EF"
+theme.border_marked = "#C4265E"
+
+-- Generate taglist squares:
+local taglist_square_size = dpi(4)
+theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
+    taglist_square_size, theme.fg_normal
+)
+theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
+    taglist_square_size, theme.fg_normal
+)
+
+-- Variables set for theming notifications:
+-- notification_font
+-- notification_[bg|fg]
+-- notification_[width|height|margin]
+-- notification_[border_color|border_width|shape|opacity]
+-- You can use your own layout icons like this:
+theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
+theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
+theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
+theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
+theme.layout_max = themes_path.."default/layouts/maxw.png"
+theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
+theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
+theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
+theme.layout_tile = themes_path.."default/layouts/tilew.png"
+theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
+theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
+theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
+theme.layout_cornernw = themes_path.."default/layouts/cornernww.png"
+theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
+theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
+theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
+
+
+theme.icon_theme = nil
+
+return theme
