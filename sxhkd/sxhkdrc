@@ -1,0 +1,32 @@
+super + Return
+       st
+
+super + r
+      dmenu_run
+
+super + a
+      feh --bg-scale ~/Documents/Pictures/wallpaper/ --randomize --no-fehbg
+
+super + o
+      bash ~/Documents/programming/scripts/chars.sh
+
+super + e
+      emacs
+
+super + shift + e
+      nautilus
+
+mod1+ shift + e
+      st -e ranger
+
+super + shift + d
+      discord
+
+super + shift + s
+      flameshot gui
+
+super + d; {y,t,r,a,m, Return}
+      firefox --new-tab {https://youtube.com, https://twitter.com, https://reddit.com, https://wiki.archlinux.org, https://moodle.pfarrwiesen.de, }
+
+super + d ; super + {y,t,r,a,m}
+      firefox --new-window {https://youtube.com, https://twitter.com, https://reddit.com, https://wiki.archlinux.org, https://moodle.pfarrwiesen.de}
