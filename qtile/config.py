@@ -187,7 +187,7 @@ screens = [
             [
                 widget.GroupBox(
                     hide_unused=True,
-                    visible_groups=group_map[0],
+                    visible_groups=group_map[i],
                     highlight_method="block",
                     active=colors.light1,
                     block_highlight_text_color=colors.dark0_hard,
@@ -212,29 +212,7 @@ screens = [
             background = colors.dark0_hard,
             margin = [6, 6, 0, 6]
         ),
-    ),
-    Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    hide_unused=True,
-                    visible_groups=group_map[1],
-                    highlight_method="block",
-                    active=colors.light1,
-                    block_highlight_text_color=colors.dark0_hard,
-                    rounded=False,
-                    this_current_screen_border=colors.light1,
-                    this_screen_border=colors.light1
-                ),
-                widget.Prompt(),
-                widget.Spacer(),
-                widget.Clock(format="%d, %H:%M:%S, %s"),
-            ],
-            19,
-            background = colors.dark0_hard,
-            margin = [6, 6, 0, 6]
-        ),
-    ),
+    ) for i in range(len(screeninfo.get_monitors()))
 ]
 
 # Drag floating layouts.
