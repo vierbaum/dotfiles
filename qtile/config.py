@@ -7,6 +7,9 @@ import screeninfo
 
 @lazy.function
 def spawn_dmenu(qtile, command):
+    """
+    Spawn dmenu_command with position and size for current monitor.
+    """
     gap = 6
     menu_width = qtile.current_screen.width - 2 * gap
     qtile.spawn("%s -x %s -y %s -z %s"%(command, gap, gap, menu_width))
@@ -67,6 +70,20 @@ def move_window_to_group(window, group_num, switch_group=False):
     group_name = group_map[window.qtile.current_screen.index][group_num]
     window.togroup(group_name, switch_group=switch_group)
 
+@lazy.layout.function
+def layout_grow_left(layout_):
+    if isinstance(layout_, layout.MonadTall):
+        layout_.shrink_main()
+    else:
+        layout_.grow_left()
+
+@lazy.layout.function
+def layout_grow_right(layout_):
+    if isinstance(layout_, layout.MonadTall):
+        layout_.grow_main()
+    else:
+        layout_.grow_right()
+
 mod = "mod4"
 FF_path = "/home/nld/.config/firefox/firefox"
 keys = [
@@ -82,16 +99,13 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
 
     # Grow windows
-    Key([mod, "control"], "h", lazy.layout.grow_left()),
     Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key([mod, "control"], "j", lazy.layout.grow_down()),
     Key([mod, "control"], "k", lazy.layout.grow_up()),
     Key([mod], "space", lazy.layout.normalize()),
 
-    # TODO custom function without redifinition
-    # MonadTall Layout
-    Key([mod, "control"], "h", lazy.layout.shrink_main()),
-    Key([mod, "control"], "l", lazy.layout.grow_main()),
+    Key([mod, "control"], "h", layout_grow_left()),
+    Key([mod, "control"], "l", layout_grow_right()),
 
 
     # Change window state
